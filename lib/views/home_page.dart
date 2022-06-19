@@ -15,158 +15,163 @@ class HomePage extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(
-                height: 20,
-              ),
+          child: SingleChildScrollView(
+            child: Container(
+              height: MediaQuery.of(context).size.height + 200,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(
+                    height: 25,
+                  ),
 
-              //APPBAR
-              const _customAppbar(),
+                  //APPBAR
+                  const _customAppbar(),
 
-              const SizedBox(
-                height: 30,
-              ),
+                  const SizedBox(
+                    height: 20,
+                  ),
 
-              //HEADER
-              const _customHeader(),
-              const SizedBox(
-                height: 20,
-              ),
+                  //HEADER
+                  const _customHeader(),
+                  const SizedBox(
+                    height: 20,
+                  ),
 
-              //CONTENT ROW
-              contentRowHeader(
-                info: 'Classes',
-                title: '5 Classes Today',
-              ),
+                  //CONTENT ROW
+                  contentRowHeader(
+                    info: 'Classes',
+                    title: '5 Classes Today',
+                  ),
 
-              const SizedBox(
-                height: 20,
-              ),
+                  const SizedBox(
+                    height: 20,
+                  ),
 
-              //CTA CARD TILE
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Color(0xffE1E4E3),
-                ),
-                width: double.infinity,
-                height: 180,
-                padding: EdgeInsets.all(25),
-                child: Row(
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                  //CTA CARD TILE
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Color(0xffE1E4E3),
+                    ),
+                    width: double.infinity,
+                    height: 180,
+                    padding: EdgeInsets.all(25),
+                    child: Row(
                       children: [
-                        Row(
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const CircleAvatar(
-                              radius: 25,
-                              backgroundColor: Color(0xffD0D8D3),
-                              child: Text('🏹'),
-                            ),
-                            const SizedBox(
-                              width: 8,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              // ignore: prefer_const_literals_to_create_immutables
+                            Row(
                               children: [
-                                const Text(
-                                  'History',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 20),
+                                const CircleAvatar(
+                                  radius: 25,
+                                  backgroundColor: Color(0xffD0D8D3),
+                                  child: Text('🏹'),
                                 ),
-                                const Text('8:00 - 8:45',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w300,
-                                        color: Colors.grey))
+                                const SizedBox(
+                                  width: 8,
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  // ignore: prefer_const_literals_to_create_immutables
+                                  children: [
+                                    const Text(
+                                      'History',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 20),
+                                    ),
+                                    const Text('8:00 - 8:45',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w300,
+                                            color: Colors.grey))
+                                  ],
+                                )
                               ],
+                            ),
+                            Spacer(),
+                            Container(
+                              decoration: BoxDecoration(
+                                  color: Colors.black,
+                                  borderRadius: BorderRadius.circular(9)),
+                              child: TextButton.icon(
+                                  onPressed: () {},
+                                  icon: Icon(
+                                    Icons.video_call_outlined,
+                                    size: 20,
+                                    color: Colors.white,
+                                  ),
+                                  label: Text(
+                                    '|  Join Now  ',
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 10),
+                                  )),
                             )
                           ],
                         ),
-                        Spacer(),
-                        Container(
-                          decoration: BoxDecoration(
-                              color: Colors.black,
-                              borderRadius: BorderRadius.circular(9)),
-                          child: TextButton.icon(
-                              onPressed: () {},
-                              icon: Icon(
-                                Icons.video_call_outlined,
-                                size: 20,
-                                color: Colors.white,
-                              ),
-                              label: Text(
-                                '|  Join Now  ',
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 10),
-                              )),
-                        )
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Expanded(child: Image.asset(folder))
                       ],
                     ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Expanded(child: Image.asset(folder))
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 40,
-              ),
+                  ),
+                  SizedBox(
+                    height: 40,
+                  ),
 
-              contentRowHeader.Action(
-                  title: 'Home Works',
-                  info: 'View All',
-                  ontap: () {
-                    Navigator.of(context)
-                        .push(SliderTransition(TimeLineScreen()));
-                  }),
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //   // ignore: prefer_const_literals_to_create_immutables
-              //   children: [
-              //     Text(
-              //       'Home Works',
-              //       style: TextStyle(color: Color(0xff7D7D7D)),
-              //     ),
-              //     Text('View All', style: TextStyle(color: Color(0xff7D7D7D))),
-              //   ],
-              // ),
-              SizedBox(
-                height: 15,
-              ),
-              Expanded(
-                child: Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    Positioned(
-                      top: 10,
-                      child: Container(
-                          decoration: BoxDecoration(
-                              color: Colors.purple,
-                              borderRadius: BorderRadius.circular(15)),
-                          height: 200,
-                          width: MediaQuery.of(context).size.width - 42),
+                  contentRowHeader.Action(
+                      title: 'Home Works',
+                      info: 'View All',
+                      ontap: () {
+                        Navigator.of(context)
+                            .push(SliderTransition(TimeLineScreen()));
+                      }),
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //   // ignore: prefer_const_literals_to_create_immutables
+                  //   children: [
+                  //     Text(
+                  //       'Home Works',
+                  //       style: TextStyle(color: Color(0xff7D7D7D)),
+                  //     ),
+                  //     Text('View All', style: TextStyle(color: Color(0xff7D7D7D))),
+                  //   ],
+                  // ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Expanded(
+                    child: Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        Positioned(
+                          top: 10,
+                          child: Container(
+                              decoration: BoxDecoration(
+                                  color: Colors.purple,
+                                  borderRadius: BorderRadius.circular(15)),
+                              height: 200,
+                              width: MediaQuery.of(context).size.width - 42),
+                        ),
+                        Positioned(
+                          top: 40,
+                          child: Container(
+                              padding: EdgeInsets.all(10),
+                              child: _homeWorkContent(),
+                              decoration: BoxDecoration(
+                                  color: Color.fromARGB(255, 223, 179, 193),
+                                  borderRadius: BorderRadius.circular(15)),
+                              height: 200,
+                              width: MediaQuery.of(context).size.width - 42),
+                        ),
+                      ],
                     ),
-                    Positioned(
-                      top: 40,
-                      child: Container(
-                          padding: EdgeInsets.all(10),
-                          child: _homeWorkContent(),
-                          decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 223, 179, 193),
-                              borderRadius: BorderRadius.circular(15)),
-                          height: 200,
-                          width: MediaQuery.of(context).size.width - 42),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
         ),
       ),
@@ -282,8 +287,14 @@ class _homeWorkContent extends StatelessWidget {
           height: 15,
         ),
         ListTile(
-          title: Text('Newtons Law mothion'),
-          subtitle: Text('Read screens 1.1 -1.2 pdf'),
+          title: Text(
+            'Newtons Law mothion',
+            overflow: TextOverflow.ellipsis,
+          ),
+          subtitle: Text(
+            'Read screens 1.1 -1.2 pdf',
+            overflow: TextOverflow.ellipsis,
+          ),
           trailing: Icon(Icons.warning_outlined),
         ),
       ],
