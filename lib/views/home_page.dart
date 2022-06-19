@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ui_challenge_01/global/assets.dart';
+import 'package:ui_challenge_01/views/second_screen.dart';
+import 'package:ui_challenge_01/widgets/navigation.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -115,17 +117,25 @@ class HomePage extends StatelessWidget {
               SizedBox(
                 height: 40,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                // ignore: prefer_const_literals_to_create_immutables
-                children: [
-                  Text(
-                    'Home Works',
-                    style: TextStyle(color: Color(0xff7D7D7D)),
-                  ),
-                  Text('View All', style: TextStyle(color: Color(0xff7D7D7D))),
-                ],
-              ),
+
+              contentRowHeader.Action(
+                  title: 'Home Works',
+                  info: 'View All',
+                  ontap: () {
+                    Navigator.of(context)
+                        .push(SliderTransition(TimeLineScreen()));
+                  }),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //   // ignore: prefer_const_literals_to_create_immutables
+              //   children: [
+              //     Text(
+              //       'Home Works',
+              //       style: TextStyle(color: Color(0xff7D7D7D)),
+              //     ),
+              //     Text('View All', style: TextStyle(color: Color(0xff7D7D7D))),
+              //   ],
+              // ),
               SizedBox(
                 height: 15,
               ),
@@ -205,16 +215,19 @@ class contentRowHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      // ignore: prefer_const_literals_to_create_immutables
-      children: [
-        Text(
-          'Classes',
-          style: TextStyle(color: Color(0xff7D7D7D)),
-        ),
-        Text('5 Classes Today', style: TextStyle(color: Color(0xff7D7D7D))),
-      ],
+    return InkWell(
+      onTap: isActionROw ? ontap : () {},
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        // ignore: prefer_const_literals_to_create_immutables
+        children: [
+          Text(
+            title,
+            style: TextStyle(color: Color(0xff7D7D7D)),
+          ),
+          Text(info, style: TextStyle(color: Color(0xff7D7D7D))),
+        ],
+      ),
     );
   }
 }
@@ -232,6 +245,7 @@ class _customAppbar extends StatelessWidget {
           height: 20,
         ),
         CircleAvatar(
+          backgroundImage: NetworkImage(profilePicUrl),
           backgroundColor: Colors.blue,
         ),
         Icon(
