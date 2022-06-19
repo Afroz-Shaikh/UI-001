@@ -12,10 +12,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData(useMaterial3: true),
+      // ThemeData(
+      //   androidOverscrollIndicator: AndroidOverscrollIndicator.stretch,
+      //   primarySwatch: Colors.blue,
+      // ),
       home: HomePage(),
     );
   }
