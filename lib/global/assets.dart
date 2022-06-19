@@ -1,4 +1,2 @@
-final String wave = 'assets/svgs/wave.svg';
-final String folder = 'assets/images/folder.png';
-
-
+const String wave = 'assets/svgs/wave.svg';
+const String folder = 'assets/images/folder.png';
