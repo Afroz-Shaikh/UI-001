@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(
-                    height: 25,
+                    height: 15,
                   ),
 
                   //APPBAR

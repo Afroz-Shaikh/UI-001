@@ -1,5 +1,3 @@
 # ui_challenge_01
 
-A new Flutter project.
-
-## Getting Started
+This is a UI clone of the below previed image made with flutter/Dart.
